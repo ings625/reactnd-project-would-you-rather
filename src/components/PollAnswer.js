@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { formatQuestion, formatDate } from '../utils/helpers'
-import { connect } from 'react-redux'
 
 class PollAnswer extends Component {
   render() {

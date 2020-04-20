@@ -8,7 +8,6 @@ class Login extends Component {
     e.preventDefault()
 
     let userId = document.getElementById("user-select").value;
-    console.log(userId)
 
     this.props.dispatch(setAuthedUser(userId))
 
@@ -18,20 +17,22 @@ class Login extends Component {
     return (
       <div>
       	<h1>Login</h1>
-      	<form onSubmit={this.handleSubmit}>
-      		<div>
-	      		<select id="user-select">
-	      			{Object.keys(this.props.users).map((id) => (
-	      				<option key={id} value={id}>{this.props.users[id].name}</option>
-	      			))}	
-	      		</select>
-      		</div>
-      		<div>
-	      		<button type='submit'>
-	      			Log In
-	      		</button>
-      		</div>
-      	</form>
+      	{!this.props.loading && 
+	      	<form onSubmit={this.handleSubmit}>
+	      		<div>
+		      		<select id="user-select">
+		      			{Object.keys(this.props.users).map((id) => (
+		      				<option key={id} value={id}>{this.props.users[id].name}</option>
+		      			))}	
+		      		</select>
+	      		</div>
+	      		<div>
+		      		<button type='submit'>
+		      			Log In
+		      		</button>
+	      		</div>
+	      	</form>
+	      }
       </div>
     )
   }
@@ -39,7 +40,8 @@ class Login extends Component {
 
 function mapStateToProps ({ users }) {
   return {
-    users
+    users,
+    loading: Object.keys(users).length === 0
   }
 }
 

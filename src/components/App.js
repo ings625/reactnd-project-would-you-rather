@@ -5,6 +5,8 @@ import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import Login from './Login'
 import Nav from './Nav'
+import AddPoll from './AddPoll'
+import Leaderboard from './Leaderboard'
 import LoadingBar from 'react-redux-loading'
 import '../App.css'
 
@@ -25,6 +27,8 @@ class App extends Component {
               ? <Login />
               : <div>
                   <Route path='/' exact component={Dashboard} />
+                  <Route path='/add' exact component={AddPoll} />
+                  <Route path='/leaderboard' exact component={Leaderboard} />
                 </div>}
           </div>
         </Fragment>

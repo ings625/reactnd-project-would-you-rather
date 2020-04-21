@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { formatQuestion, formatDate } from '../utils/helpers'
+import { formatQuestion } from '../utils/helpers'
 import { connect } from 'react-redux'
 import PollAnswer from './PollAnswer'
 import { handleAnswerQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 class Poll extends Component {
   handleSubmit = (e) => {
@@ -17,7 +18,6 @@ class Poll extends Component {
 	    break;
 	  }
 	}
-    console.log(answer)
 
     const info = {
     	id: this.props.question.id,
@@ -33,6 +33,13 @@ class Poll extends Component {
   render() {
   	const {question, answer} = this.props
   	const showResults = answer ? true : false
+
+  	if (!question) {
+  		return (
+  			<Redirect to='/404' />
+  		)
+  	}
+
     return (
       <div>
       	<div>
@@ -48,11 +55,12 @@ class Poll extends Component {
 	        </form>
 	    }
 
-
-        <div>
-        	<PollAnswer option={question.optionOne} showResults={showResults} selected={answer === 'optionOne'} />
-        	<PollAnswer option={question.optionTwo} showResults={showResults} selected={answer === 'optionTwo'} />
-        </div>
+	    {showResults && 
+	        <div>
+	        	<PollAnswer option={question.optionOne} selected={answer === 'optionOne'} />
+	        	<PollAnswer option={question.optionTwo} selected={answer === 'optionTwo'} />
+	        </div>
+	    }
 
       </div>
     )

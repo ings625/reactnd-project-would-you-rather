@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 
 class PollAnswer extends Component {
   render() {
-    const { showResults, option, selected } = this.props
-    console.log(this.props)
+    const { option, selected } = this.props
     return (
       <div>
       	<div>
         	{option.text}
         </div>
-        {showResults && 
           <div>
             <div>
               {option.count}
@@ -17,8 +15,8 @@ class PollAnswer extends Component {
             <div>
               {option.percent}
             </div>
+            {selected && `You chose this option`}
           </div>
-        }
         
       </div>
     )

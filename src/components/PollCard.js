@@ -7,7 +7,6 @@ class PollCard extends Component {
   render() {
 
   	const { question } = this.props
-  	console.log(question)
   	const {
       name, avatar, timestamp, id
     } = question

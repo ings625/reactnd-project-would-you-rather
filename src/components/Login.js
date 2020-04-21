@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
+
+
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -14,6 +17,13 @@ class Login extends Component {
   }
 
   render() {
+
+    
+
+    if (this.props.authed === true) {
+      return <Redirect to='/' />
+    }
+
     return (
       <div>
       	<h1>Login</h1>
@@ -38,10 +48,11 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users, authedUser }) {
   return {
     users,
-    loading: Object.keys(users).length === 0
+    loading: Object.keys(users).length === 0,
+    authed: authedUser !== null,
   }
 }
 

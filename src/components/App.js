@@ -7,6 +7,7 @@ import Dashboard from './Dashboard'
 import Login from './Login'
 import Nav from './Nav'
 import AddPoll from './AddPoll'
+import ErrorPage from './Error'
 import Leaderboard from './Leaderboard'
 import Poll from './Poll'
 import LoadingBar from 'react-redux-loading'
@@ -31,7 +32,7 @@ class App extends Component {
           <div className='container'>
             <Nav />
 
-            {this.props.authed === true
+            {this.props.authed === false
               ? <Login />
               : <div>
                   <div>
@@ -44,7 +45,10 @@ class App extends Component {
                   <Route path='/add' exact component={AddPoll} />
                   <Route path='/leaderboard' exact component={Leaderboard} />
                   <Route path='/question/:id' component={Poll} />
-                </div>}
+                  <Route path='/login' component={Login} />
+                  <Route path='/404' component={ErrorPage} />
+                </div>
+              }
           </div>
         </Fragment>
       </Router>
@@ -54,7 +58,7 @@ class App extends Component {
 
 function mapStateToProps ({ authedUser, users }) {
   return {
-    authed: authedUser === null,
+    authed: authedUser !== null,
     authedUser: users[authedUser]
   }
 }

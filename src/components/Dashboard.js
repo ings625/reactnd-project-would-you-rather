@@ -18,6 +18,10 @@ class Dashboard extends Component {
     return (
       <div>
         <h3 className='center'>Would You Rather</h3>
+        <div>
+          <button onClick={() => this.setState({unanswered: true})}>Unanswered Questions</button>
+          <button onClick={() => this.setState({unanswered: false})}>Answered Questions</button>
+        </div>
         <ul className='dashboard-list'>
           {this.state.unanswered ? 'Unanswered Questions' : 'Answered Questions'}
           { questions.map((id) => (
@@ -32,8 +36,9 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps ({ authedUser, questions, users }) {
-  const answeredQuestionIds = Object.keys(users[authedUser].answers)
+  const answeredQuestionIds = authedUser ? Object.keys(users[authedUser].answers)
       .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+      : []
 
   return {
     answeredQuestionIds: answeredQuestionIds,

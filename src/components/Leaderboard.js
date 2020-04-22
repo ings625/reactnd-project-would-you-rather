@@ -7,14 +7,12 @@ class Leaderboard extends Component {
   	const { userIds } = this.props
     return (
       <div>
-        Leaderboard
-        <ol>
+        <h3 className="center">Leaderboard</h3>
+        <div className="dashboard-list">
         	{userIds.map((userId) => (
-        		<li key={userId}>
-        			<UserCard userId={userId} />
-        		</li>
+        			<UserCard  key={userId} userId={userId} />
         	))}
-        </ol>
+        </div>
       </div>
     )
   }

@@ -8,23 +8,31 @@ class PollCard extends Component {
 
   	const { question } = this.props
   	const {
-      name, avatar, timestamp, id
+      name, avatar, timestamp, id, optionOne, optionTwo
     } = question
 
     return (
-      <Link to={`/question/${id}`} className='question'>
-      	<img
-          src={avatar}
-          alt={`Avatar of ${name}`}
-          className='avatar'
-        />
-        <div>
-          <div>
-            <span>{name}</span>
-            <div>{formatDate(timestamp)}</div>
-          </div>
-        </div>
-      </Link>
+    <Link className="poll-card" to={`/question/${id}`} >
+	      	<div>
+		      	<div>{name} asks...</div>
+		      	<img
+		          src={avatar}
+		          alt={`Avatar of ${name}`}
+		          className='avatar'
+		        />
+		        <div>
+		          <div>
+		            
+		            <div>{formatDate(timestamp)}</div>
+		          </div>
+		        </div>
+	        </div>
+	        <div className="poll-text">
+	        	<h4>Would you rather:</h4>
+	        	<p>A: {optionOne.text}</p>
+        		<p>B: {optionTwo.text}</p>
+	        </div>
+     </Link>
     )
   }
 }

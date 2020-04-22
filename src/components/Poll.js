@@ -41,22 +41,30 @@ class Poll extends Component {
   	}
 
     return (
-      <div>
-      	<div>
-        	Would you rather...
-        </div>
+      <div className='flex-box-column'>
+      	<h3 className='center'>Would You Rather...</h3>
+      	<div className='flex-box-row'>
+	      	<p className='center'>(asked by {question.name})</p>
+			<img
+		      src={question.avatar}
+		      alt={`Avatar of ${question.name}`}
+		      className='avatar'
+		    />
+	    </div>
         {!showResults && 
-	        <form>
+	        <form className='center'>
 	        	<input type="radio" id="optionOne" name="ratherOption" />
 	        	<label>{question.optionOne.text}</label>
+	        	<br />
 	        	<input type="radio" id="optionTwo" name="ratherOption" />
 	        	<label>{question.optionTwo.text}</label>
-	        	<button onClick={this.handleSubmit}>Submit</button>
+	        	<br />
+	        	<button className='btn' onClick={this.handleSubmit}>Submit</button>
 	        </form>
 	    }
 
 	    {showResults && 
-	        <div>
+	        <div className='flex-box-row'>
 	        	<PollAnswer option={question.optionOne} selected={answer === 'optionOne'} />
 	        	<PollAnswer option={question.optionTwo} selected={answer === 'optionTwo'} />
 	        </div>

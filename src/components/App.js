@@ -11,7 +11,9 @@ import ErrorPage from './Error'
 import Leaderboard from './Leaderboard'
 import Poll from './Poll'
 import LoadingBar from 'react-redux-loading'
-import '../App.css'
+//import '../App.css'
+
+import { IoMdLogOut } from 'react-icons/io'
 
 
 
@@ -30,17 +32,27 @@ class App extends Component {
         <Fragment>
           <LoadingBar />
           <div className='container'>
-            <Nav />
-
+            <div className='app-header'>
+              <Nav />
+              {this.props.authed && 
+                <div className="header-user">
+                  <img
+                    src={this.props.authedUser.avatarURL}
+                    alt={`Avatar of ${this.props.authedUser.name}`}
+                    className='header-avatar'
+                  />
+                  <div className='header-item'>
+                    Hi {this.props.authedUser.name}
+                  </div>
+                  <div className='header-item'>
+                    <IoMdLogOut className="log-out" onClick={this.logOut} />
+                  </div>
+                </div>
+              }
+            </div>
             {this.props.authed === false
               ? <Login />
               : <div>
-                  <div>
-                    <div>
-                      Hi {this.props.authedUser.name}
-                    </div>
-                    <button onClick={this.logOut}>Log Out</button>
-                  </div>
                   <Route path='/' exact component={Dashboard} />
                   <Route path='/add' exact component={AddPoll} />
                   <Route path='/leaderboard' exact component={Leaderboard} />

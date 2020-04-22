@@ -13,7 +13,7 @@ function addQuestion (question) {
   }
 }
 
-export function handleAddQuestion (optionOneText, optionTwoText) {
+export function handleAddQuestion ({optionOneText, optionTwoText}) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
 

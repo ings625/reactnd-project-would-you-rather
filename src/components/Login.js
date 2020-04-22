@@ -18,26 +18,24 @@ class Login extends Component {
 
   render() {
 
-    
-
     if (this.props.authed === true) {
       return <Redirect to='/' />
     }
 
     return (
       <div>
-      	<h1>Login</h1>
+      	<h1 className='center'>Login</h1>
       	{!this.props.loading && 
 	      	<form onSubmit={this.handleSubmit}>
-	      		<div>
-		      		<select id="user-select">
+	      		<div className='center'>
+		      		<select id="user-select" className="slct">
 		      			{Object.keys(this.props.users).map((id) => (
 		      				<option key={id} value={id}>{this.props.users[id].name}</option>
 		      			))}	
 		      		</select>
 	      		</div>
-	      		<div>
-		      		<button type='submit'>
+	      		<div className='center'>
+		      		<button className='btn' type='submit'>
 		      			Log In
 		      		</button>
 	      		</div>

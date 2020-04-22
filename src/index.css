@@ -1,13 +1,221 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: sans-serif;
+  color: #252525;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+  color: #252525;
 }
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.slct {
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  background: #fff;
+  font-size: 16px;
+  width: 250px;
+  height: 30px;
+  position: relative;
+}
+
+
+.btn {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+}
+
+.btn:hover {
+  border-color: rgba(0,0,0,.5);
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
+.center {
+  text-align: center;
+}
+
+.active {
+  font-weight: bold;
+  color: blue;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.header-avatar {
+  height: 20px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.header-item {
+	margin-left: 15px
+}
+
+.header-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-decoration: none;	
+  align-items: center;
+}
+
+.tab {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+}
+
+.tab:hover {
+  border-color: rgba(0,0,0,.5);
+  text-decoration: none;
+}
+
+.tab-selected {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: #4791db;
+  font-size: 16px;
+  width: 250px;
+  position: relative;
+}
+
+.log-out {
+	cursor: pointer;
+}
+
+.dashboard-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.poll-card {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.poll-text {
+	margin-left: 25px
+}
+
+.flex-box-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;	
+  align-items: center;
+}
+
+.flex-box-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;	
+  align-items: center;
+}
+
+.inpt {
+	width: 300px;
+	height: 40px;
+	margin: 10px;
+}
+
+.poll-answer {
+	width: 100%;
+	align-items: center;
+	text-align: center;	
+}
+
+.user-card {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-scores {
+	margin-left: 25px
+}
+
+.total-score {
+	font-weight: bold;
+}
+

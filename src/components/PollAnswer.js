@@ -4,18 +4,15 @@ class PollAnswer extends Component {
   render() {
     const { option, selected } = this.props
     return (
-      <div>
+      <div className="poll-answer">
       	<div>
         	{option.text}
         </div>
           <div>
             <div>
-              {option.count}
+              {option.count} Users ({Math.round(option.percent * 100)} %)
             </div>
-            <div>
-              {option.percent}
-            </div>
-            {selected && `You chose this option`}
+            {selected && `(Your vote)`}
           </div>
         
       </div>

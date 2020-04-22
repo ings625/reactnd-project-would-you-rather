@@ -5,18 +5,21 @@ class UserCard extends Component {
   render() {
   	const { user } = this.props
     return (
-      <div>
-        <div>
-        	{user.name}
+      <div className="user-card">
+      	<div>
+	        <div>
+	        	{user.name}
+	        </div>
+	      	<img
+	          src={user.avatarURL}
+	          alt={`Avatar of ${user.name}`}
+	          className='avatar'
+	        />	        
         </div>
-        <div>
-        	Total Asked: {user.questions.length}
-        </div>
-        <div>
-        	Total Answered: {Object.keys(user.answers).length}
-        </div>
-         <div>
-        	Score: {Object.keys(user.answers).length + user.questions.length}
+        <div className='user-scores'>
+        	<p>Asked: {user.questions.length}</p>
+        	<p>Answered: {Object.keys(user.answers).length}</p>
+	        <p className="total-score">Score: {Object.keys(user.answers).length + user.questions.length}</p>
         </div>
       </div>
     )
